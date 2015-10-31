@@ -1,0 +1,24 @@
+<template name="friends">
+	<h3>Friends: </h3>
+	<hr>
+	<div class="list-group">
+		{{#each friends}}
+			{{> friend}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="friend">
+	<div class="list-group-item">
+		<span type="submit" value="Remove" class="remove-friend glyphicon glyphicon-remove pull-right text-danger"></span>
+		{{#with profile}}
+				<h4 class="list-group-item-heading">{{firstName}} {{lastName}}</h4>
+		{{/with}}
+
+		<p class="list-group-item-text">
+			{{#each emails}}
+				{{address}}
+			{{/each}}
+		</p>
+	</div> <!--Change this to use profile instead-->
+</template>
