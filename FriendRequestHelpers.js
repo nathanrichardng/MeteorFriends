@@ -68,4 +68,10 @@ if (Meteor.isClient) {
       Meteor.call('rejectFriendRequest', friendRequest);
     }
   });
+
+  Template.friendRequestCounter.helpers({
+    numberOfFriendRequests: function() {
+        return FriendRequests.find({ to: Meteor.userId(), status: 'Pending' }).count();
+    }
+  });
 }
