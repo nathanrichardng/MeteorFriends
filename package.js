@@ -1,6 +1,6 @@
 Package.describe({
   name: 'sodiumtellurium:friends',
-  version: '0.0.5',
+  version: '0.0.6',
   // Brief, one-line summary of the package.
   summary: 'A basic friends package',
   // URL to the Git repository containing the source code for this package.

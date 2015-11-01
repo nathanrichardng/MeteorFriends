@@ -10,7 +10,7 @@ if (Meteor.isClient) {
           //change this to return user profile instead later on
           var toUserName = toUser.username;
           var fromUserName = fromUser.username;
-          
+
           var transformedDoc = {
               to: toUserName,
               from: fromUserName,
@@ -39,6 +39,7 @@ if (Meteor.isClient) {
               createdAt: doc.createdAt.toDateString(),
               status: doc.status
           }
+          console.log(transformedDoc);
           return transformedDoc;
         }
       });
