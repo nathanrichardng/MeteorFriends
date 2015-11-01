@@ -1,7 +1,7 @@
 if (Meteor.isServer) {
   Meteor.methods({
-      'addFriendRequest': function(toUserEmail){
-          var toUser = Meteor.users.findOne({emails: {$elemMatch: {address: toUserEmail} } });
+      'addFriendRequest': function(toUser){
+          var toUser = Meteor.users.findOne({username: toUser});
           var toUserId = toUser._id;
           var fromUserId = Meteor.userId();
           //don't allow duplicates

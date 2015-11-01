@@ -8,8 +8,9 @@ if (Meteor.isClient) {
           var fromUser = Meteor.users.findOne({ _id: doc.from });
 
           //change this to return user profile instead later on
-          var toUserName = toUser.profile.firstName + " " + toUser.profile.lastName + " (" + toUser.emails[0].address + ")";
-          var fromUserName = fromUser.profile.firstName + " " + fromUser.profile.lastName + " (" + fromUser.emails[0].address + ")";
+          var toUserName = toUser.username;
+          var fromUserName = fromUser.username;
+          
           var transformedDoc = {
               to: toUserName,
               from: fromUserName,
@@ -30,11 +31,11 @@ if (Meteor.isClient) {
           var fromUser = Meteor.users.findOne({ _id: doc.from });
 
           //change this to return user profile instead later on
-          var toUserEmail = toUser.emails[0].address;
-          var fromUserEmail = fromUser.emails[0].address;
+          var toUserName = toUser.username;
+          var fromUserName= fromUser.username;
           var transformedDoc = {
-              to: toUserEmail,
-              from: fromUserEmail,
+              to: toUserName,
+              from: fromUserName,
               createdAt: doc.createdAt.toDateString(),
               status: doc.status
           }
@@ -50,7 +51,6 @@ if (Meteor.isClient) {
   		var toUser = event.target.toUser.value;
   		
   		Meteor.call('addFriendRequest', toUser);
-      console.log(toUser);
   		event.target.toUser.value = "";
   	}
   });
