@@ -2,7 +2,7 @@ if (Meteor.isClient) {
   // This code only runs on the client
   Template.friends.helpers({
     friends: function() {
-    	return Meteor.users.find({ _id: { $in: Meteor.user().colleagues } });
+    	return Meteor.users.find({ _id: { $in: Meteor.user().friends } });
     }
   });
 
