@@ -14,4 +14,29 @@ if (Meteor.isClient) {
       Meteor.call('removeFriend', friendId);
     }
   });
+
+  Template.selectMultipleFriends.helpers({
+    friends: function() {
+      console.log(Meteor.user());
+      return Meteor.users.find({_id: { $in: Meteor.user().friends } });
+    }
+  });
+
+  Template.selectOneFriend.helpers({
+    friends: function() {
+      console.log(Meteor.user());
+      return Meteor.users.find({_id: { $in: Meteor.user().friends } });
+    }
+  });
+
+  Template.selectOneFriendOrSelf.helpers({
+    options: function() {
+      console.log(Meteor.user());
+      return Meteor.users.find({ $or: [ 
+          { _id: { $in: Meteor.user().friends } },
+          { _id: Meteor.userId() }
+        ]
+      });
+    }
+  });
 }

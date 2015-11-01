@@ -16,3 +16,33 @@
 
 	</div> <!--Change this to use profile instead-->
 </template>
+
+<template name="selectMultipleFriends">
+	<select multiple name="members" class="form-control">
+    	{{#each friends}}
+    		<option value="{{_id}}">
+        		{{username}}
+    		</option>
+    	{{/each}}
+    </select>
+</template>
+
+<template name="selectOneFriend">
+	<select name="member" class="form-control">
+    	{{#each friends}}
+    		<option value="{{_id}}">
+        		{{username}}
+    		</option>
+    	{{/each}}
+    </select>
+</template>
+
+<template name="selectOneFriendOrSelf">
+	<select name="member" class="form-control">
+    	{{#each options}}
+    		<option value="{{_id}}">
+        		{{username}}
+    		</option>
+    	{{/options}}
+    </select>
+</template>
