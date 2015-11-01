@@ -34,8 +34,8 @@ if (Meteor.isServer) {
             return false;
           }
           FriendRequests.update({_id: friendRequestId}, {$set: {status: 'Accepted'} });
-          Meteor.users.update({_id: friendRequest.to}, {$addToSet: {colleagues: friendRequest.from } });
-          Meteor.users.update({_id: friendRequest.from}, {$addToSet: {colleagues: friendRequest.to } });
+          Meteor.users.update({_id: friendRequest.to}, {$addToSet: {friends: friendRequest.from } });
+          Meteor.users.update({_id: friendRequest.from}, {$addToSet: {friends: friendRequest.to } });
       }
   });
 
